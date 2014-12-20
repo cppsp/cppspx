@@ -7,6 +7,8 @@ Starting this new one because the original author is not active with the develop
 Direction and Roadmap
 =====================
 * Compatibility with redis and dynamic-cpp module.
+* Redis and dynamic-cpp is still not ready, please join us in discussion on issue tracking... thanks.
+* Making it work behind nginx... (Please contribute. Thanks)
 
 CPPSP: C++ Server Pages
 =======================
