@@ -1,0 +1,20 @@
+#!/bin/bash
+CFGFLAGS=""
+CPPSP_LD="-lcryptopp"
+for x in "$@"; do
+	case "$x" in
+	--help)
+		echo "usage: ./configure [--disable-websocket]"
+		exit 1
+		;;
+	--disable-websocket)
+		CFGFLAGS="-DCPPSP_DISABLE_WEBSOCKET"
+		CPPSP_LD=""
+		;;
+	esac
+done;
+rm -f makefile
+echo "CFGFLAGS := $CFGFLAGS" >>makefile
+echo "CPPSP_LD := $CPPSP_LD" >>makefile
+cat _makefile >>makefile
+echo done

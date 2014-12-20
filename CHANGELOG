@@ -1,0 +1,74 @@
+Version scheme
+================
+	MAJOR.MINOR[.BUGFIX | -rcN]
+	for example, (in order from earliest to latest)
+		0.1-rc1: 0.1 initial release candidate
+		0.1: release 0.1 initial release
+		0.1.1: release 0.1, 1st bugfix release
+		0.1.10: release 0.1, 10th bugfix release
+	* Once a release has gone through about 8 cycles of bugfixes, and/or the number and severity of bugs has declined to a very low point, it is considered "stable".
+
+API/ABI stability
+	* For performance reasons, only API compability will be maintained. Expect ABI breakages even between different bugfix releases of the same branch.
+	* API compatibility is maintained between different bugfix releases of the same branch (major and minor number) for all non-rc releases.
+
+RELEASE OVERVIEW
+================
+(as of 2014/01/02)
+latest release: 1.0
+latest stable release: 0.2.5
+"maintained" means API is to be kept unchanged in future releases of that branch
+
+1.0:
+	* current status: released/testing
+0.3:
+	* current status: renamed to 1.0
+0.2:
+	* current status: stable; maintained
+0.1:
+	* current status: deprecated
+
+CHANGELOG
+================
+1.0: (based on 52484d590073ed368d26cf8b9ecc9a0cbca304ef)
+	1.0: (2014/01/02) - 52484d590073ed368d26cf8b9ecc9a0cbca304ef
+		* fixed an XSS vulnerability in the default error handler page
+		* misc minor bugfixes
+	
+0.3: (based on 05eb2d693ab2e065fd00412df23d879a79cad292)
+	notable changes included so far (from 0.2):
+		* mime database configuration is now automatic
+		* allow temporary and persistent binaries to be stored in a separate directory (-b cmdline flag)
+		* [API change] signature of initModule() has been changed; look at the example modules for documentation
+		* [API change] the "public" specifier now needs to be explicitly specified in the "inherits" page option (if one is present)
+		* [API change] request router re-work;
+			* the signature of Page::loadNestedPage() and Server::load[Page|Module][FromFile]() has changed
+			* routing decisions can be cached; the directory listing support module no longer adds noticible overhead
+		* chunked transfer encoding & early flush support
+		* custom error handler support
+		* automatic cache cleanup
+		* the housekeeping timer is now automatically disabled when not needed, saving power on embedded/mobile devices
+		* ARM is now fully supported
+		* sendfile(2) support
+		* static files larger than 2GB are now supported
+		* SSI (server side include) support
+		* websocket support included by default. You'll need crypto++ installed.
+	0.3-rc4: (2013/09/03) - 5c5d37a09cce5031fc25cb9058cacea6dd696025
+		* sync to top of master branch (many bugfixes)
+		* websocket support can now be disabled by running ./configure --disable-websocket
+	0.3-rc3: (2013/09/02) - 1f4a7d942ae93a45f0138be2727faa23f04cf3ea
+		* sync to top of master branch
+	0.3-rc2: (2013/08/10) - 1b12721001f8db118267a3c32be61bcc28a9dd44
+		* cppsp: return http code 404 instead of 500 when accessing a nonexistent file (1b12721001f8db118267a3c32be61bcc28a9dd44)
+		* cppsp: fix typo in commit 363a8caa48f92bcf05a2c8fb4fa6ff89832f480a (10cf788b07ccefcb8d4b726ce96f66b028cbbe8b)
+		* cppsp: hold reference to staticPage when doing sendfile() (4e3391acbc3a2905317a516f01d868d9c579c7f5)
+		* cppsp: sendfile support (11ffb4c9a36b5e1d014c57bab2c724bd5d41222b)
+		* cppsp: perform urlDecode() on request path (1c4cc8aee9ac1ef255f878f17a05556cb6c8c4eb)
+		* cppsp: hold reference to loadedPage whenever Page instances of them exist (8c2f30948757aa96a80bf6623aed7350c8716254)
+		* showcache.cppsp: allow clearing caches (ae539768df350850466fdefa69e37569165cf9ae)
+		* cppsp: minor internal api changes (05f6063a26d8d558a43acf473723e55593c32aae)
+		* cpoll: sendfile(2) suppport (b07423c4a30f82ed900e84227f572989c8a26d78)
+	0.3-rc1: (2013/07/23) - 05eb2d693ab2e065fd00412df23d879a79cad292
+		* initial release candidate
+
+

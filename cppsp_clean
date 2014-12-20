@@ -1,0 +1,4 @@
+#!/bin/bash
+rm -f *.cppsp.C *.cppsp.so *.cppsp.txt *.cppsp.*.C *.cppsp.*.txt
+rm -f *.cppsm.C *.cppsm.so *.cppsm.txt *.cppsm.*.C *.cppsm.*.txt
+

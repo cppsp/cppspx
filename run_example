@@ -1,0 +1,2 @@
+#!/bin/bash
+LD_LIBRARY_PATH="$(pwd)" ./cppsp_standalone -r "$(pwd)"/www -m /dir_list.cppsm -l 0.0.0.0:16969 -c -fPIC -c -I"$(pwd)"/include -c -L"$(pwd)" -c -pthread -c -Ofast -c -march=native -c -lcpoll -c -lcppsp -f $@ -b "$(pwd)"/tmp

@@ -1,0 +1,4 @@
+#!/bin/bash
+# usage: run_application /ABSOLUTE/PATH/TO/APPLICATION
+
+LD_LIBRARY_PATH="$(pwd)" ./cppsp_standalone -f -l 0.0.0.0:16969 -c -fPIC -c -I"$(pwd)"/include -c -L"$(pwd)" -c -pthread -c -Ofast -c -march=native -c -lcpoll -c -lcppsp -r "$@"
