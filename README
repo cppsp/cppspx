@@ -1,3 +1,13 @@
+CPPSPX
+======
+cppspx, special fork, independant of cpoll_cppsp... note the extra x
+
+Starting this new one because the original author is not active with the development.
+
+Direction and Roadmap
+=====================
+* Compatibility with redis and dynamic-cpp module.
+
 CPPSP: C++ Server Pages
 =======================
 CPPSP (C++ Server Pages) is a web application framework similar to ASP and ASP .Net. It features a template parser that parses, compiles, and loads CPPSP pages automatically at runtime. CPPSP pages have a very similar syntax to ASP and ASP .NET, where all code is considered HTML by default, and server-side active code can be embedded using "<% ... %>". 
